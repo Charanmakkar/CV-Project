@@ -1,0 +1,55 @@
+camera:
+  index: 0
+  width: 1280
+  height: 720
+  fps: 30
+  source: webcam
+  video_path: ""
+
+detection:
+  model: yolo11n.pt
+  confidence: 0.45
+  iou: 0.45
+  image_size: 640
+  device: auto
+  enabled: true
+  classes: [person, bicycle, car, motorcycle, bus, truck, chair]
+
+navigation:
+  zones: 5
+  collision_corridor_width: 0.34
+  collision_corridor_bottom: 0.98
+  collision_corridor_top: 0.52
+  risk_threshold: 42.0
+  stop_threshold: 78.0
+  emergency_threshold: 92.0
+
+distance:
+  critical: 2.0
+  near: 4.0
+  caution: 6.0
+  reference_object_height_m: 1.5
+  focal_length_px: 700.0
+
+steering:
+  max_angle: 60.0
+  sensitivity: 1.0
+  smoothing: 0.72
+  min_command_duration_s: 0.35
+  base_speed: 70.0
+
+tracking:
+  max_missing_frames: 12
+  match_iou: 0.25
+  approach_window: 8
+
+logging:
+  enabled: true
+  directory: logs
+
+ui:
+  update_ms: 33
+  show_debug: true
+  show_trajectory: true
+  show_zones: true
+
