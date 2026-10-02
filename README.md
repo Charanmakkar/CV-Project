@@ -41,6 +41,15 @@ For repeatable testing with a video:
 python main.py --video path\to\test_video.mp4
 ```
 
+This repository also includes a generated 24-second synthetic test video with clear-path, approaching-center, left-obstacle, right-obstacle, and blocked-path scenarios:
+
+```powershell
+python tools\create_sample_video.py
+python main.py --video recordings\sample_patrol.mp4 --no-model
+```
+
+The synthetic shapes test playback, overlays, trajectory rendering, recording, and GUI timing. They are not a substitute for real YOLO detections; use real camera/video footage with the model enabled to test object detection.
+
 ## Dashboard controls
 
 `START CAMERA` opens the webcam/video source. `START PATROL` marks the software patrol mode active; `PAUSE` leaves perception visible while pausing patrol intent. `EMERGENCY STOP` forces simulated wheel speeds to zero. Detection, trajectory, zone, and debug overlays can be toggled live. Confidence, maximum steering angle, zone count, and smoothing can be changed from the right panel.
