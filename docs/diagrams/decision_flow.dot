@@ -1,0 +1,20 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.45", ranksep="0.5"];
+  node [shape=box, style="rounded,filled", color="#2C5666", fillcolor="#EAF4F7", fontname="Arial", fontsize=10, margin="0.14,0.1"];
+  edge [color="#35758B", arrowsize=0.7, fontname="Arial", fontsize=9];
+  A [label="Highest detected risk < 42?", shape=diamond, fillcolor="#FFF0C8"];
+  B [label="STRAIGHT / PATH_CLEAR", fillcolor="#DBF5E9"];
+  C [label="min(left risk, right risk) < 78?", shape=diamond, fillcolor="#FFF0C8"];
+  D [label="Critical threat AND risk >= 92?", shape=diamond, fillcolor="#FFF0C8"];
+  E [label="Request EMERGENCY STOP\nwheels zero once applied", fillcolor="#FFDADB"];
+  F [label="Request STOP\nwheels zero once applied", fillcolor="#FFDADB"];
+  G [label="Choose lower-risk side\nleft wins ties", fillcolor="#DBF5E9"];
+  H [label="Signed angle = +/- max angle x strength\nthen temporal smoothing + action hold"];
+  A -> B [label="yes"];
+  A -> C [label="no"];
+  C -> D [label="no"];
+  D -> E [label="yes"];
+  D -> F [label="no"];
+  C -> G [label="yes"];
+  G -> H;
+}

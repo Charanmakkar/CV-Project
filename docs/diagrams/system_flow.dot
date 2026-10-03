@@ -1,0 +1,19 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.25", nodesep="0.45", ranksep="0.55", fontname="Arial"];
+  node [shape=box, style="rounded,filled", color="#2C5666", fillcolor="#EAF4F7", fontname="Arial", fontsize=11, margin="0.16,0.12"];
+  edge [color="#35758B", arrowsize=0.7];
+  Input [label="Webcam / MP4\nOpenCV capture"];
+  Detect [label="YOLO11n\nclass filtering"];
+  Track [label="Class-aware\nIoU tracking"];
+  CV [label="Zones + corridor\nmonocular distance"];
+  Risk [label="Per-object risk\nzone occupancy"];
+  Decide [label="Route selection\nand state"];
+  Control [label="Smoothed steering\nwheel simulation"];
+  Output [label="OpenCV overlay\nPySide6 GUI + CSV"];
+  {rank=same; Input; Detect; Track; CV;}
+  {rank=same; Output; Control; Decide; Risk;}
+  Input -> Detect -> Track -> CV -> Risk;
+  Output -> Control -> Decide -> Risk [style=invis, weight=100];
+  Risk -> Decide -> Control -> Output [constraint=false];
+  Input -> Output [style=invis, weight=10];
+}

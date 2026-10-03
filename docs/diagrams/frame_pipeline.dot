@@ -1,0 +1,15 @@
+digraph G {
+  graph [rankdir=TB, bgcolor="white", pad="0.2", nodesep="0.32", ranksep="0.33"];
+  node [shape=box, style="rounded,filled", color="#2C5666", fillcolor="#EAF4F7", fontname="Arial", fontsize=10, margin="0.14,0.09"];
+  edge [color="#35758B", arrowsize=0.65];
+  A [label="Read BGR frame; get width and height"];
+  B [label="YOLO predict: confidence + IoU thresholds; retain configured classes"];
+  C [label="Match detections to same-class tracks by bounding-box IoU"];
+  D [label="For each detection: zone, corridor, estimated distance, proximity"];
+  E [label="For each detection: weighted risk score capped at 100"];
+  F [label="Max risk per zone; noisy-OR left and right corridor risks"];
+  G [label="Choose straight / turn / stop and update state"];
+  H [label="Smooth angle; compute wheel percentages"];
+  I [label="Draw boxes, labels, zones, corridor, trajectory; update GUI and CSV"];
+  A -> B -> C -> D -> E -> F -> G -> H -> I;
+}

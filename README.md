@@ -4,6 +4,14 @@
 
 A software-only computer-vision navigation demonstrator. A USB/web camera or prerecorded video is processed by an optional Ultralytics YOLO model, then converted into explainable obstacle-risk, navigation, steering, and differential-drive wheel commands. It is a research/education simulator; it does not control real motors and is not a safety-certified autonomous-driving system.
 
+## Project report
+
+The [detailed engineering report](docs/PROJECT_REPORT.md) covers the source architecture, computer vision algorithms and formulas, GUI controls, setup, testing, limitations, flowcharts, and labeled outcome screenshots. A formatted Word version with the figures embedded is available as [Computer_Vision_Object_Detection_Patrol_System.docx](Computer_Vision_Object_Detection_Patrol_System.docx). Run `python docs/capture_report_assets.py` and `python docs/generate_report.py` to regenerate the captures and Word report.
+
+The [project proposal](docs/PROJECT_PROPOSAL.md) presents the problem, concept, CV method, planned validation, expected outcomes, and a seven-slide presentation outline. Its [Word version](Computer_Vision_Autonomous_Patrol_Project_Proposal.docx) and [presentation deck](Computer_Vision_Autonomous_Patrol_Proposal_Presentation.pptx) can be regenerated with `python docs/generate_proposal.py` and `python docs/generate_proposal_slides.py`.
+
+The [IEEE-style preliminary report](Computer_Vision_Autonomous_Patrol_Preliminary_Report.pdf) has a separate title page, a two-column technical body, a 209-word abstract, progress and early results, a dated completion plan, references, and appendices. Edit the [LaTeX source](Computer_Vision_Autonomous_Patrol_Preliminary_Report.tex) and run `python docs/build_preliminary_report.py` to rebuild the PDF. The build requires `pdflatex` and the `IEEEtran` LaTeX class.
+
 ## Highlights
 
 - PySide6 ADAS-style single-screen dashboard.

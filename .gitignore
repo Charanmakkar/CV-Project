@@ -6,12 +6,8 @@ venv/
 env/
 *.pt
 *.onnx
-logs/*.csv
-recordings/*
-screenshots/*
 !logs/.gitkeep
 !recordings/.gitkeep
 !screenshots/.gitkeep
 .idea/
 .vscode/
-
